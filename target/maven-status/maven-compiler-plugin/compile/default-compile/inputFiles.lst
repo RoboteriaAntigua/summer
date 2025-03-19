@@ -1,0 +1,15 @@
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/App.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/Repository/UserRepository.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/config/ApiConfig.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/config/WebConfig.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/controllers/ApiController.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/controllers/LoginController.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/forms/FormData.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/interceptor/ApiInterceptor.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/interceptor/AuthInterceptor.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/model/User.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/modules/Producto/ProductoController.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/modules/Producto/ProductoEntity.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/modules/Producto/ProductoRepository.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/modules/Producto/ProductoRequest.java
+/home/marcos/Escritorio/spring/Maquina_de_cruds_maven/src/main/java/com/machineCruds/request/ApiRequest.java

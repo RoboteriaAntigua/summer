@@ -1,0 +1,15 @@
+com/machineCruds/forms/FormData.class
+com/machineCruds/modules/Producto/ProductoController.class
+com/machineCruds/modules/Producto/ProductoRepository.class
+com/machineCruds/request/ApiRequest.class
+com/machineCruds/config/ApiConfig.class
+com/machineCruds/controllers/ApiController.class
+com/machineCruds/interceptor/AuthInterceptor.class
+com/machineCruds/controllers/LoginController.class
+com/machineCruds/modules/Producto/ProductoEntity.class
+com/machineCruds/config/WebConfig.class
+com/machineCruds/Repository/UserRepository.class
+com/machineCruds/interceptor/ApiInterceptor.class
+com/machineCruds/modules/Producto/ProductoRequest.class
+com/machineCruds/App.class
+com/machineCruds/model/User.class
