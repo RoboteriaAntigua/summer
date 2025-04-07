@@ -3,17 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CRUDS Generator</title>
+    <style>
+        body {
+            background-color: #222; /* Dark background */
+            color: #eee; /* Light text color */
+            font-family: sans-serif; /* Professional font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #333; /* Darker container background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+        }
+
+        .form-container {
+            color: #eee;
+            font-size: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-container h1 {
+            color: #eee; /* Light heading color */
+            margin-bottom: 20px;
+        }
+
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            background-color: #444; /* Dark input background */
+            color: #eee; /* Light input text color */
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .form-container button[type="submit"] {
+            background-color: #555; /* Dark button background */
+            color: #eee; /* Light button text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .form-container button[type="submit"]:hover {
+            background-color: #666; /* Slightly lighter on hover */
+        }
+
+        .form-container a {
+            color: #eee;
+            margin-top: 10px;
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .form-container a:hover {
+            color: #fff; /* White on hover */
+        }
+    </style>
 </head>
 <body>
-    <h1>Login!</h1>
-    <form action="#" th:action="@{/login}" th:object="${formData}" method="post">
-        Email:<input type="email" id="email" th:field="*{email}" /><br/>
-        password:<input type="password" id="password" th:field="*{password}"><br>
+<div class="container">
+    <div class="form-container">
+        <h1>Login!</h1>
+        <form action="#" th:action="@{/login}" th:object="${formData}" method="post">
+            <input type="email" id="email" th:field="*{email}" placeholder="admin@mail.com"/><br/>
+            <input type="password" id="password" th:field="*{password}" placeholder="123"><br>
             <button type="submit">login</button>
-    </form><br>
+        </form><br>
 
-    <a href="/register">Registrarse</a><br>
-    
+        Do you not have an account? <a href="/register"> Register</a><br>
+    </div>
+</div>
 </body>
 </html>
