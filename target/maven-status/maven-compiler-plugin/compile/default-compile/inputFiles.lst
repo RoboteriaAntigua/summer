@@ -3,6 +3,8 @@
 /home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/config/SecurityConfig.java
 /home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/controllers/ContentController.java
 /home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/controllers/RegistrationController.java
+/home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/model/UserDTO.java
+/home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/model/UserDetails.java
 /home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/model/UserEntity.java
 /home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/model/UserService.java
 /home/mar/Desktop/Projects/Maquina_de_cruds_maven/src/main/java/roboto/machineCruds/auth/request/ApiRequest.java

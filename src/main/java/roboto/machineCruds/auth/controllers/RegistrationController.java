@@ -1,26 +1,40 @@
 package roboto.machineCruds.auth.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import roboto.machineCruds.auth.Repository.UserRepository;
-import roboto.machineCruds.auth.model.UserEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import roboto.machineCruds.auth.model.UserDTO;
+import roboto.machineCruds.auth.model.UserDetails;
+import roboto.machineCruds.auth.model.UserService;
 
-@RestController
+
+@Controller
 public class RegistrationController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 
-    @PostMapping(value = "/signup", consumes = "application/json")
-    public UserEntity createUser(@RequestBody UserEntity user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+    @GetMapping("/signup")
+    public String showSignupForm(Model model) {
+        model.addAttribute("user", new UserDTO());
+        return "signup";
+    }
+    
+    @PostMapping("/signup")
+    public String createUser(@Valid @ModelAttribute("user") UserDTO userDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "signup";
+        }
+        userService.createUser(userDTO);
+        return "index";
     }
 
 }

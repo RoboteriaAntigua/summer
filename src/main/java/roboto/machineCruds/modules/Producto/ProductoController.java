@@ -40,7 +40,7 @@ public class ProductoController {
     }
 
     @PostMapping("/store")
-    public ResponseEntity<?> store(@RequestBody ProductoRequest request) {
+    public ResponseEntity<?> store(@RequestBody ProductDTO request) {
 
         if (!request.validate()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(request.getMessage());
@@ -56,7 +56,7 @@ public class ProductoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ProductoRequest request) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ProductDTO request) {
 
         ProductoEntity oldProducto = productoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No encontrado"));

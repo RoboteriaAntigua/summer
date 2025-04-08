@@ -1,41 +1,33 @@
 package roboto.machineCruds.auth.model;
 
-import java.util.Optional;
-
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import roboto.machineCruds.auth.Repository.UserRepository;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
-public class UserService implements UserDetailsService {
+public class UserService {
 
     @Autowired
-    private final UserRepository myAppUserRepository;
-    
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserEntity> user = myAppUserRepository.findByUsername(username);
-        if (user.isPresent()) {
-            var userObj = user.get();
+    private final UserRepository userRepository;
 
-            return User
-                    .builder()
-                    .username(userObj.getUsername())
-                    .password(userObj.getPassword())
-                    .build();
-        } else {
-            throw new UsernameNotFoundException(username);
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public void createUser(UserDTO userDTO) {
+        try {
+            UserEntity user = new UserEntity();
+            user.setUsername(userDTO.getUsername());
+            user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+            user.setEnabled(true);
+            user.setEmail(userDTO.getEmail());
+            userRepository.save(user);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
     }
 
 }

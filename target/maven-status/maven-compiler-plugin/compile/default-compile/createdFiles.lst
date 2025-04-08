@@ -4,9 +4,11 @@ roboto/machineCruds/auth/Repository/UserRepository.class
 roboto/machineCruds/auth/request/ApiRequest.class
 roboto/machineCruds/auth/controllers/RegistrationController.class
 roboto/machineCruds/modules/Producto/ProductoRequest.class
+roboto/machineCruds/auth/model/UserDetails.class
 roboto/machineCruds/App.class
 roboto/machineCruds/modules/Producto/ProductoEntity.class
 roboto/machineCruds/auth/controllers/ContentController.class
 roboto/machineCruds/modules/Producto/ProductoController.class
+roboto/machineCruds/auth/model/UserDTO.class
 roboto/machineCruds/auth/config/SecurityConfig.class
 roboto/machineCruds/modules/Producto/ProductoRepository.class
