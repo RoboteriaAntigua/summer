@@ -1,6 +1,8 @@
 # Maquina de cruds
 
-# Por ahora es una app basada en session
+# Crear crud:
+
+    java Summer Client -all
 
 # Registrar
 

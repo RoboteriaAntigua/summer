@@ -1,4 +1,4 @@
-package roboto.machineCruds.modules.Product;
+package roboto.machineCruds.modules.Llave;
 
 import java.util.List;
 
@@ -17,36 +17,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/producto")
-public class ProductController {
+@RequestMapping("/api/llave")
+public class LlaveController {
 
     @Autowired
-    private ProductService productService;
+    private LlaveService llaveService;
 
     @GetMapping("/index")
-    public ResponseEntity<List<ProductEntity>> index() {
-        return ResponseEntity.ok(productService.list());
+    public ResponseEntity<List<LlaveEntity>> index() {
+        return ResponseEntity.ok(llaveService.list());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductEntity> show(@PathVariable long id) {
-        return ResponseEntity.ok(productService.getProductById(id));
+    public ResponseEntity<LlaveEntity> show(@PathVariable long id) {
+        return ResponseEntity.ok(llaveService.getLlaveById(id));
     }
 
     @PostMapping("/store")
-    public ResponseEntity<ProductEntity> store(@Valid @RequestBody ProductDTO productDTO) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(productDTO));
+    public ResponseEntity<LlaveEntity> store(@Valid @RequestBody LlaveDTO llaveDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(llaveService.createLlave(llaveDTO));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @Valid @RequestBody ProductDTO productDTO) {
-        return ResponseEntity.ok(productService.update(productService.getProductById(id), productDTO));
+    public ResponseEntity<?> update(@PathVariable Long id, @Valid @RequestBody LlaveDTO llaveDTO) {
+        return ResponseEntity.ok(llaveService.update(llaveService.getLlaveById(id), llaveDTO));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable long id) {
-        productService.getProductById(id);
-        productService.delete(id);
+        llaveService.getLlaveById(id);
+        llaveService.delete(id);
         return ResponseEntity.ok("Resource Deleted");
     }
 

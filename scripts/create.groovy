@@ -1,5 +1,3 @@
-package roboto.machineCruds.modules
-
 if (!args.length == 2) {
     println "Use mode: groovy create.groovy <Name> -all"
     println "options: -all -c -e -dto -rep -s"
@@ -7,14 +5,18 @@ if (!args.length == 2) {
 
 String name = args[0]
 String option = args[1]
-def baseDir = "./" + args[0]
+
+/**
+ * Base dir and template is from the root folder when the Summer is execute
+ */
+def baseDir = "./src/main/java/roboto/machineCruds/modules/" + args[0]
 String pattern = ~/Product/
+String template = "./scripts/Product"
 
 //Crea carpeta con nombre del modulo
 def dir = new File(baseDir)
 if (!dir.exists()) {
-    dir.mkdir()  // Creates the directory
-    println "Directory created: ${dir.path}"
+    dir.mkdirs() ? println("Directory created: ${dir.path}") : println("Fails trying to create module: ${baseDir}")
 } else {
     println "Directory already exists: ${dir.path}"
 }
@@ -30,7 +32,7 @@ if (option == "-c" || option == "-all") {
     def controllerFile = new File(baseDir + "/", name + 'Controller.java')
 
     //Lee controlador Producto y reemplaza matches
-    new File("./Product/", 'ProductController.java').eachLine { line ->
+    new File(template, 'ProductController.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         controllerFile.append(replacedLineToLower + "\n")
@@ -47,7 +49,7 @@ if (option == "-e" || option == "-all") {
     //Create new entity
     def entityFile = new File(baseDir + "/", name + 'Entity.java')
 
-    new File("./Product/", 'ProductEntity.java').eachLine { line ->
+    new File(template, 'ProductEntity.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         entityFile.append(replacedLineToLower + "\n")
@@ -66,7 +68,7 @@ if (option == "-repo" || option == "-all") {
     def repositoryFile = new File(baseDir + "/", name + 'Repository.java')
 
     //Read the Repository and replace all matches
-    new File("./Product/", 'ProductRepository.java').eachLine { line ->
+    new File(template, 'ProductRepository.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         repositoryFile.append(replacedLineToLower + "\n")
@@ -84,7 +86,7 @@ if (option == "-dto" || option == "-all") {
     def requestFile = new File(baseDir + "/", name + 'DTO.java')
 
     //Read an existing DTO an replace all the matches
-    new File("./Product/", 'ProductDTO.java').eachLine { line ->
+    new File(template, 'ProductDTO.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         requestFile.append(replacedLineToLower + "\n")
@@ -98,8 +100,8 @@ if (option == "-dto" || option == "-all") {
         def repository = ""
 
         def repositoryFile = new File(baseDir + "/", name + 'Service.java')
-        
-        new File("./Product/", 'ProductService.java').eachLine { line ->
+
+        new File(template, 'ProductService.java').eachLine { line ->
             def replacedLine = line.replaceAll(pattern, name)
             def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
             repositoryFile.append(replacedLineToLower + "\n")
