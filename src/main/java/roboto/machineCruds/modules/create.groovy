@@ -1,14 +1,14 @@
 package roboto.machineCruds.modules
 
 if (!args.length == 2) {
-    println "Modo de uso: groovy Maquina.groovy <Name> -all"
-    println "opciones: -all -c -e -req -rep"
+    println "Use mode: groovy create.groovy <Name> -all"
+    println "options: -all -c -e -dto -rep -s"
 }
 
 String name = args[0]
 String option = args[1]
 def baseDir = "./" + args[0]
-String pattern = ~/Producto/
+String pattern = ~/Product/
 
 //Crea carpeta con nombre del modulo
 def dir = new File(baseDir)
@@ -22,7 +22,7 @@ if (!dir.exists()) {
 // --------------------- Controller --------------------------------------------------------
 if (option == "-c" || option == "-all") {
 
-    println "Creando " + name + "Controller"
+    println "Creating " + name + "Controller"
 
     def controller = ""
 
@@ -30,7 +30,7 @@ if (option == "-c" || option == "-all") {
     def controllerFile = new File(baseDir + "/", name + 'Controller.java')
 
     //Lee controlador Producto y reemplaza matches
-    new File("./Producto/", 'ProductoController.java').eachLine { line ->
+    new File("./Product/", 'ProductController.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         controllerFile.append(replacedLineToLower + "\n")
@@ -40,15 +40,14 @@ if (option == "-c" || option == "-all") {
 // --------------------- Entity --------------------------------------------------------
 if (option == "-e" || option == "-all") {
 
-    println "Creando " + name + "Entity"
+    println "Creating " + name + "Entity"
 
     def entity = ""
 
-    //Crea controlador nuevo
+    //Create new entity
     def entityFile = new File(baseDir + "/", name + 'Entity.java')
 
-    //Lee controlador Producto y reemplaza matches
-    new File("./Producto/", 'ProductoEntity.java').eachLine { line ->
+    new File("./Product/", 'ProductEntity.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         entityFile.append(replacedLineToLower + "\n")
@@ -59,35 +58,52 @@ if (option == "-e" || option == "-all") {
 // --------------------- Repositoy --------------------------------------------------------
 if (option == "-repo" || option == "-all") {
 
-    println "Creando " + name + "Repository"
+    println "Creating " + name + "Repository"
 
     def repository = ""
 
-    //Crea controlador nuevo
+    //Creating new repo
     def repositoryFile = new File(baseDir + "/", name + 'Repository.java')
 
-    //Lee controlador Producto y reemplaza matches
-    new File("./Producto/", 'ProductoRepository.java').eachLine { line ->
+    //Read the Repository and replace all matches
+    new File("./Product/", 'ProductRepository.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         repositoryFile.append(replacedLineToLower + "\n")
     }
 }
 
-// --------------------- Request --------------------------------------------------------
-if (option == "-req" || option == "-all") {
+// --------------------- DTO --------------------------------------------------------
+if (option == "-dto" || option == "-all") {
 
-    println "Creando " + name + "Request"
+    println "Creating " + name + "DTO"
 
     def request = ""
 
-    //Crea controlador nuevo
-    def requestFile = new File(baseDir + "/", name + 'Request.java')
+    //Create a new DTO
+    def requestFile = new File(baseDir + "/", name + 'DTO.java')
 
-    //Lee controlador Producto y reemplaza matches
-    new File("./Producto/", 'ProductoRequest.java').eachLine { line ->
+    //Read an existing DTO an replace all the matches
+    new File("./Product/", 'ProductDTO.java').eachLine { line ->
         def replacedLine = line.replaceAll(pattern, name)
         def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
         requestFile.append(replacedLineToLower + "\n")
     }
+
+    // --------------------- Service --------------------------------------------------------
+    if (option == "-s" || option == "-all") {
+
+        println "Creating " + name + "Service"
+
+        def repository = ""
+
+        def repositoryFile = new File(baseDir + "/", name + 'Service.java')
+        
+        new File("./Product/", 'ProductService.java').eachLine { line ->
+            def replacedLine = line.replaceAll(pattern, name)
+            def replacedLineToLower = replacedLine.replaceAll(pattern.toLowerCase(), name.toLowerCase())
+            repositoryFile.append(replacedLineToLower + "\n")
+        }
+    }
+
 }

@@ -1,11 +1,11 @@
-package roboto.machineCruds.modules.Producto;
+package roboto.machineCruds.modules.Product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface ProductoRepository extends JpaRepository<ProductoEntity, Long> {
+public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
 
 }

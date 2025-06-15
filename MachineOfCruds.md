@@ -9,7 +9,7 @@
 
 # Login
 
-    Post a http://localhost:8080/loguin
+    Post a http://localhost:8080/login
     con body x-www-form-urlencoded:
     {
         "username": "tete2",
