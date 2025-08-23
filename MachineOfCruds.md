@@ -2,7 +2,7 @@
 
 # Crear crud:
 
-    java Summer Client -all
+    java summer Client -all
 
 # Registrar
 

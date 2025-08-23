@@ -1,13 +1,12 @@
 import java.io.IOException;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
-public class Summer {
+public class summer {
 
     public static void main(String[] args) {
 
-        String[] start = {"groovy", "./scripts/create", args[0], args[1]}; // Fix with dependencys
+        String[] start = {"groovy", "./scripts/create.groovy", args[0], args[1]}; // Fix with dependencys
 
         runCommand(start);
 
