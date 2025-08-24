@@ -1,33 +1,30 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.BufferedReader;
 
 public class summer {
-
-    public static void main(String[] args) {
-
-        String[] start = {"groovy", "./scripts/create.groovy", args[0], args[1]}; // Fix with dependencys
-
-        runCommand(start);
-
+    public static void main(String[] var0) {
+        String[] var1 = new String[]{"groovy", "./scripts/create.groovy", var0[0], var0[1]};
+        runCommand(var1);
     }
 
-    /**
-     * No Output Capture: Runtime.exec() runs commands in a separate process but doesn't display their output in your Java console.
-     * The echo hola and ls a outputs go to their own process streams, which aren't connected to your terminal.
-     *
-     * @param command
-     */
-    private static void runCommand(String[] command) {
+    private static void runCommand(String[] var0) {
         try {
-            Process process = Runtime.getRuntime().exec(command);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+            Process var1 = Runtime.getRuntime().exec(var0);
+            BufferedReader var2 = new BufferedReader(new InputStreamReader(var1.getInputStream()));
+
+            String var3;
+            while ((var3 = var2.readLine()) != null) {
+                System.out.println(var3);
             }
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
+        } catch (IOException var4) {
+            System.out.println("Error: " + var4.getMessage());
         }
+
     }
 }

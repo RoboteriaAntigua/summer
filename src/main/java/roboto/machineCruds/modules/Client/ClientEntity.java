@@ -1,4 +1,4 @@
-package roboto.machineCruds.modules.Product;
+package roboto.machineCruds.modules.Client;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,17 +11,17 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "products")
+@Table(name = "clients")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductEntity {
+public class ClientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    private Float price;
+    private String name;
 
 }
