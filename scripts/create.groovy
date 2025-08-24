@@ -1,17 +1,15 @@
-if (!args.length == 2) {
-    println "Use mode: groovy create.groovy <Name> -all"
+if (args.length < 2) {
+    println "Use mode: groovy create.groovy <Name> -all -nosql (optional for no sql db)"
     println "options: -all -c -e -dto -rep -s"
 }
 
 String name = args[0]
 String option = args[1]
+String dbType = (args.length > 2) ? args[2] : ""
 
-/**
- * Base dir and template is from the root folder when the Summer is execute
- */
 def baseDir = "./src/main/java/roboto/machineCruds/modules/" + args[0]
 String pattern = ~/Product/
-String template = "./scripts/Product"
+String template = (dbType == "-nosql") ? "./scripts/ProductNoSQL" : "./scripts/Product"
 
 //Crea carpeta con nombre del modulo
 def dir = new File(baseDir)

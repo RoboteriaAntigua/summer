@@ -1,11 +1,11 @@
-package roboto.machineCruds.modules.Client;
+package roboto.machineCruds.modules.Product;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface ClientRepository extends MongoRepository<ClientEntity, Long> {
+public interface ProductRepository extends MongoRepository<ProductEntity, Long> {
     
 }
 

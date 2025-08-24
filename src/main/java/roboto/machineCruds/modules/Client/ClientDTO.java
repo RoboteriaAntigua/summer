@@ -12,15 +12,22 @@ public class ClientDTO {
     @NotBlank
     private String name;
 
-    @NotNull
-    private Float price;
+    /**
+     * Add here the fields of your entity.
+     */
+    // private String name;
+    // private Double price;
 
-    private String message;
 
+    /**
+     * Mapper to entity
+     *
+     * @return
+     */
     public ClientEntity mapToEntity() {
         ClientEntity entity = new ClientEntity();
-        entity.setName(this.getName());
-        entity.setPrice(this.getPrice());
+//        entity.setName(this.getName());
+//        entity.setPrice(this.getPrice());
         return entity;
     }
 }

@@ -1,4 +1,4 @@
-package roboto.machineCruds.modules.Client;
+package roboto.machineCruds.modules.Product;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
@@ -9,9 +9,9 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Document(collection = "clients")
+@Document(collection = "products")
 @Data
-public class ClientEntity {
+public class ProductEntity {
 
     @Id
     private String id;

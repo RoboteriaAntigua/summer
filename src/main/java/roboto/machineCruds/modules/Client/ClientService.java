@@ -25,8 +25,8 @@ public class ClientService {
     }
 
     public ClientEntity update(ClientEntity oldClient, ClientDTO clientDTO) {
-        oldClient.setName(clientDTO.getName());
-        oldClient.setPrice(clientDTO.getPrice());
+//        oldClient.setName(clientDTO.getName());
+//        oldClient.setPrice(clientDTO.getPrice());
         return clientRepository.save(oldClient);
     }
 

@@ -13,10 +13,11 @@ public class ProductDTO {
     private String name;
 
     /**
-     * Add here the fields of your entity, that should be match with the sql database
+     * Add here the fields of your entity.
      */
     // private String name;
     // private Double price;
+
 
     /**
      * Mapper to entity

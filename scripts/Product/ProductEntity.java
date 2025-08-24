@@ -8,7 +8,9 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")
@@ -21,7 +23,17 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "created_at")
+    /**
+     * Add here the fields of your entity, that should be match with the sql database
+     */
+    // private String name;
+    // private Double price;
+
+    /**
+     * Auto created created_at field
+     */
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
 }
