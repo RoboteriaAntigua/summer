@@ -9,14 +9,12 @@ import lombok.Data;
 @AllArgsConstructor
 public class ClientDTO {
 
-    @NotBlank
-    private String name;
 
     /**
      * Add here the fields of your entity.
      */
-    // private String name;
-    // private Double price;
+    private String name;
+    private Double price;
 
 
     /**
@@ -26,8 +24,8 @@ public class ClientDTO {
      */
     public ClientEntity mapToEntity() {
         ClientEntity entity = new ClientEntity();
-//        entity.setName(this.getName());
-//        entity.setPrice(this.getPrice());
+        entity.setName(this.getName());
+        entity.setPrice(this.getPrice());
         return entity;
     }
 }

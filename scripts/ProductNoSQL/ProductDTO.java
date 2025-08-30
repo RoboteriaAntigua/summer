@@ -9,9 +9,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class ProductDTO {
 
-    @NotBlank
-    private String name;
-
     /**
      * Add here the fields of your entity.
      */

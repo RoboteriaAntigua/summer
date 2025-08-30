@@ -2,7 +2,7 @@
 
 # Crear crud:
 
-    java summer Client -all
+    java summer Client -all -nosql (opcional)
 
 # Registrar
 

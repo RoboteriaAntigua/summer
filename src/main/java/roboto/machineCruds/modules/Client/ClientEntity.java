@@ -19,8 +19,8 @@ public class ClientEntity {
     /**
      * Add here the fields of your entity.
      */
-    // private String name;
-    // private Double price;
+    private String name;
+    private Double price;
 
 
     /**

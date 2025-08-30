@@ -1,5 +1,5 @@
 if (args.length < 2) {
-    println "Use mode: groovy create.groovy <Name> -all -nosql (optional for no sql db)"
+    println "Use mode: groovy create.groovy <Name> -<options> -[nosql] (optional for no sql db)"
     println "options: -all -c -e -dto -rep -s"
 }
 
