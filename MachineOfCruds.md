@@ -1,28 +1,21 @@
 # Maquina de cruds
 
-# Crear crud:
+# Crear crud (mongo):
 
-    java summer Client -all -nosql (opcional)
+    java summer Client -all
 
-# Registrar
+# Encender mongo
 
-    Post a http://localhost:8080/signup
-    o desde la web
+    sudo service mongod start
 
-# Login
+# Agregar propiedades tanto al dto como a la entidad
 
-    Post a http://localhost:8080/login
-    con body x-www-form-urlencoded:
-    {
-        "username": "tete2",
-        "password": "1234"
-    }
-    Debe ser un email y password valido
-    (Postman recordara la session para proximas peticiones)
+    private String name
 
 # Usar los endpoints
 
-    get http://localhost:8080/api/producto/index
-
-
+    show all    ->  get http://localhost:8080/api/producto/index
+    create      ->  post http://localhost:8080/api/client/store con body acorde al dto y entidad
+    show        ->  get http://localhost:8080/api/client/68b371e63e1229224f96a1c4
+    Update      ->  put http://localhost:8080/api/client/68b371e63e1229224f96a1c4
 

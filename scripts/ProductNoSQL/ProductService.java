@@ -16,7 +16,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public ProductEntity getProductById(long id) {
+    public ProductEntity getProductById(String id) {
         return productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product with ID " + id + " not found"));
     }
 
@@ -30,7 +30,7 @@ public class ProductService {
         return productRepository.save(oldProduct);
     }
 
-    public void delete(long id) {
+    public void delete(String id) {
         productRepository.deleteById(id);
     }
 }

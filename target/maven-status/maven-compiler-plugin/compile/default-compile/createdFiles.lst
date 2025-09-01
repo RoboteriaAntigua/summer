@@ -1,17 +1,8 @@
 roboto/machineCruds/modules/Client/ClientEntity.class
 roboto/machineCruds/modules/Client/ClientController.class
 roboto/machineCruds/modules/Client/ClientRepository.class
-roboto/machineCruds/auth/model/UserService.class
-roboto/machineCruds/auth/model/UserEntity.class
 roboto/machineCruds/exceptions/RestGlobalExceptionHandler.class
-roboto/machineCruds/auth/controllers/ContentController.class
 roboto/machineCruds/modules/Client/ClientService.class
-roboto/machineCruds/auth/Repository/UserRepository.class
-roboto/machineCruds/auth/request/ApiRequest.class
-roboto/machineCruds/auth/controllers/RegistrationController.class
 roboto/machineCruds/exceptions/ResourceNotFoundException.class
 roboto/machineCruds/modules/Client/ClientDTO.class
-roboto/machineCruds/auth/model/UserDetails.class
 roboto/machineCruds/App.class
-roboto/machineCruds/auth/model/UserDTO.class
-roboto/machineCruds/auth/config/SecurityConfig.class

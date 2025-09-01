@@ -1,13 +1,4 @@
 /home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/App.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/Repository/UserRepository.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/config/SecurityConfig.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/controllers/ContentController.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/controllers/RegistrationController.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/model/UserDTO.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/model/UserDetails.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/model/UserEntity.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/model/UserService.java
-/home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/auth/request/ApiRequest.java
 /home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/exceptions/ResourceNotFoundException.java
 /home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/exceptions/RestGlobalExceptionHandler.java
 /home/mar/Desktop/Projects/summer/summerFront_mongodb/src/main/java/roboto/machineCruds/modules/Client/ClientController.java

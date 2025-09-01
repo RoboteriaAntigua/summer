@@ -14,10 +14,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 
 @RestController
 @RequestMapping("/api/product")
+@ConditionalOnProperty(
+        prefix = "modules",         // The section in your YAML
+        name = "product",            // The specific key
+        havingValue = "true",       // The value to match
+        matchIfMissing = false      // If 'modules.product' is not present, disable this bean
+)
 public class ProductController {
 
     @Autowired
@@ -29,7 +36,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductEntity> show(@PathVariable long id) {
+    public ResponseEntity<ProductEntity> show(@PathVariable String id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
@@ -39,12 +46,12 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @Valid @RequestBody ProductDTO productDTO) {
+    public ResponseEntity<?> update(@PathVariable String id, @Valid @RequestBody ProductDTO productDTO) {
         return ResponseEntity.ok(productService.update(productService.getProductById(id), productDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable long id) {
+    public ResponseEntity<?> delete(@PathVariable String id) {
         productService.getProductById(id);
         productService.delete(id);
         return ResponseEntity.ok("Resource Deleted");

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface ProductRepository extends MongoRepository<ProductEntity, Long> {
-    
+public interface ProductRepository extends MongoRepository<ProductEntity, String> {
+
 }
 
 
