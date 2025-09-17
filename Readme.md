@@ -1,0 +1,94 @@
+# Summer Framework
+
+A fast and robust framework to rocket-fuel your Spring development.
+
+## Features
+
+*   **Create a complete CRUD application with a single command.**
+*   **Simplify microservices architecture** with modules representing each API.
+*   **Scale individual APIs** independently.
+*   Compatible with both **MongoDB and MySQL**.
+*   **Professional support** available for larger projects.
+*   A **great starting point for Java beginners**.
+
+## Why Summer?
+
+Imagine you need to create a web application with CRUD operations for 40 tables. How long would that take? With the Summer framework, you can do it in just **5 minutes**.
+
+>"But won't that create a monolithic API?"
+
+Not at all. Each module can be compiled individually, giving you the flexibility to build and deploy services independently.
+
+>"What if I only need a small application with a few entities?"
+
+Summer is perfect for that too. It's transparent and easy to modify, allowing you to add new features as your project grows.
+
+## Prerequisites
+
+*   MongoDB or MySQL connection string
+*   Java 17+
+*   Groovy 3.0+
+
+## Getting Started
+
+### 1. Create a CRUD Module (MongoDB)
+
+The `summer` command creates a new module complete with a controller, service, repository, entity, and DTO. All you need to do is provide the name of your new module. This should correspond to an existing collection name in your MongoDB database.
+
+```bash
+java -jar summer.jar <ModuleName> [options]
+```
+
+**Examples:**
+
+```bash
+java -jar summer.jar ExampleModuleName -all
+java -jar summer.jar ExistingTableName -all
+java -jar summer.jar ExistingCollectionName -all
+```
+
+### 2. Command Options
+
+*   `-all`: Generate controller, entity, repository, DTO, and service.
+*   `-c`: Generate only the controller.
+*   `-s`: Generate only the service.
+*   `-e`: Generate only the entity.
+
+### 3. Start MongoDB
+
+```bash
+sudo service mongod start
+```
+
+### 4. Define Your Data Structures
+
+With MongoDB, you don't need to worry about migrations. Simply add properties to your Entity and DTO classes as needed.
+
+```java
+private String name;
+private String anotherField;
+```
+
+### 5. Use Your New Endpoints
+
+*   **Get All:** `GET http://localhost:8080/api/<moduleName>/index`
+*   **Create:** `POST http://localhost:8080/api/<moduleName>/store`
+*   **Get One:** `GET http://localhost:8080/api/<moduleName>/{id}`
+*   **Update:** `PUT http://localhost:8080/api/<moduleName>/{id}`
+
+## Optional: Activate or Deactivate Modules
+
+This feature allows you to enable or disable endpoints, making it easy to:
+
+*   Deploy endpoints to different environments.
+*   Scale high-traffic endpoints independently.
+*   Simplify maintenance with a single deployment for all endpoints.
+
+In your `application.yml` or `application.properties` file, specify which modules are active:
+
+```yaml
+modules:
+  exampleModule1: true
+  exampleModule2: false
+  exampleModule3: true
+```
