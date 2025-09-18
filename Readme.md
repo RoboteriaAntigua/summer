@@ -56,7 +56,7 @@ to do is provide the name of your new module. This should correspond to an exist
 database.
 
 ```bash
-java -jar summer.jar <ModuleName> [options]
+java summer <ModuleName> [options]
 ```
 
 **Examples:**
@@ -175,15 +175,15 @@ to do is provide the name of your new module. This should correspond to an exist
 database.
 
 ```bash
-java -jar summer.jar <ModuleName> [options] -mysql
+java summer <ModuleName> [options] -mysql
 ```
 
 **Examples:**
 
 ```bash
-java -jar summer.jar ExampleModuleName -all -mysql
-java -jar summer.jar ExistingTableName -all -mysql
-java -jar summer.jar service_orders -e -mysql
+java summer ExampleModuleName -all -mysql
+java summer ExistingTableName -all -mysql
+java summer service_orders -e -mysql
 ```
 
 ### 5. Define Your Data Structures
