@@ -26,15 +26,30 @@ independently.
 Summer is perfect for that too. It's transparent and easy to modify, allowing you to add new features as your project
 grows.
 
+## Temary
+
+* [Create a CRUD with one single command with Mongod (Recomended)](#create-a-crud-module-mongodb)
+* [Create a CRUD with one single command (Mysql)](#create-a-crud-module-mysql)
+* [Run the app](#run-the-application)
+* [Activate or Deactivate Modules](#activate-or-deactivate-modules)
+* [Personalize the root folder of the modules](#configure-when-the-modules-will-be-created)
+
 ## Prerequisites
+
+<details>
+<summary> Expand to see prerequisites</summary>
 
 * MongoDB or MySQL connection string
 * Java 17+
 * Groovy 3.0+
 
-## Getting Started
+</details>
 
-### 1. Create a CRUD Module (MongoDB)
+# Getting Started
+
+## Create a CRUD Module (MongoDB)
+
+## 1. Run command
 
 The `summer` command creates a new module complete with a controller, service, repository, entity, and DTO. All you need
 to do is provide the name of your new module. This should correspond to an existing collection name in your MongoDB
@@ -47,10 +62,18 @@ java -jar summer.jar <ModuleName> [options]
 **Examples:**
 
 ```bash
-java -jar summer.jar ExampleModuleName -all
-java -jar summer.jar ExistingTableName -all
-java -jar summer.jar ExistingCollectionName -all
+java summer ExampleModuleName -all
+java summer ExistingTableName -all
+java summer ExistingCollectionName -all
 ```
+
+### 2. Command Options
+
+* `-all`: Generate controller, entity, repository, DTO, and service.
+* `-c`: Generate only the cont...
+
+<details>
+<summary> Expand to see more steps</summary>
 
 ### 2. Command Options
 
@@ -74,15 +97,118 @@ private String name;
 private String anotherField;
 ```
 
-### 5. Use Your New Endpoints
+### Run the application:
+
+```bash
+mvn spring-boot:run
+```
+
+### Use Your New Endpoints
 
 * **Get All:** `GET http://localhost:8080/api/<moduleName>/index`
 * **Create:** `POST http://localhost:8080/api/<moduleName>/store`
 * **Get One:** `GET http://localhost:8080/api/<moduleName>/{id}`
 * **Update:** `PUT http://localhost:8080/api/<moduleName>/{id}`
 
-## Optional: Activate or Deactivate Modules
+</details>
 
+## Create a CRUD Module (Mysql)
+
+<details>
+<summary> Expand to get single steps </summary>
+
+## 1. Add dependencys on pom.xml
+
+ ```xml
+
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <scope>runtime</scope>
+</dependency>
+
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+
+## 2. Add configurations for mysql
+
+Application.yml:
+
+```yaml
+spring:
+  # Activate this for mysql
+  #
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_test
+    username: topo
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+```
+
+### 3. Remove configurations for mongod (you will not use)
+
+```yaml
+#  data:
+#    mongodb:
+#      # Add the authSource parameter to the end of the URI
+#      uri: mongodb://master:123@localhost:27017/summer?authSource=admin
+```
+
+## 4. Create a CRUD Module (MYSQL)
+
+The `summer` command creates a new module complete with a controller, service, repository, entity, and DTO. All you need
+to do is provide the name of your new module. This should correspond to an existing table name in your mysql
+database.
+
+```bash
+java -jar summer.jar <ModuleName> [options] -mysql
+```
+
+**Examples:**
+
+```bash
+java -jar summer.jar ExampleModuleName -all -mysql
+java -jar summer.jar ExistingTableName -all -mysql
+java -jar summer.jar service_orders -e -mysql
+```
+
+### 5. Define Your Data Structures
+
+    Add existing fields in the new DTO and ENTITY
+
+```java
+private String name;
+private String anotherField;
+```
+
+### Run the application:
+
+```bash
+mvn spring-boot:run
+```
+
+### Use Your New Endpoints
+
+* **Get All:** `GET http://localhost:8080/api/<moduleName>/index`
+* **Create:** `POST http://localhost:8080/api/<moduleName>/store`
+* **Get One:** `GET http://localhost:8080/api/<moduleName>/{id}`
+* **Update:** `PUT http://localhost:8080/api/<moduleName>/{id}`
+
+</details>
+
+# Activate or Deactivate Modules
+
+<details>
+<summary> Expand to see </summary>
 This feature allows you to enable or disable endpoints, making it easy to:
 
 * Deploy endpoints to different environments.
@@ -98,6 +224,14 @@ modules:
   exampleModule3: true
 ```
 
-## Configure when the modules will be created:
+</details>
+
+# Configure when the modules will be created:
 
 Localice the summerConfig.json, here you can tell to summer when the new modules should be created
+
+# Run the application:
+
+```bash
+mvn spring-boot:run
+```
