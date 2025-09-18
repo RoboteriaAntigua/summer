@@ -114,6 +114,9 @@ mvn spring-boot:run
  
 ------------------------------------------------------------------------------------------------------------------------
 
+<br>
+<br>
+
 ## Create a CRUD Module (Mysql)
 
 <details>
@@ -194,6 +197,8 @@ private String anotherField;
 
 ------------------------------------------------------------------------------------------------------------------------
 
+<br>
+<br>
 ### Run the application:
 
 ```bash
@@ -208,6 +213,12 @@ mvn spring-boot:run
 * **Update:** `PUT http://localhost:8080/api/<moduleName>/{id}`
 
 </details>
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+<br>
+<br>
 
 # Activate or Deactivate Modules
 
@@ -232,10 +243,18 @@ modules:
 
 </details>
 
+------------------------------------------------------------------------------------------------------------------------
+
+<br>
+<br>
+
 # Configure when the modules will be created:
 
 Localice the summerConfig.json, here you can tell to summer when the new modules should be created
 
+
+<br>
+<br>
 # Run the application:
 
 ```bash
