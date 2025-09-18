@@ -111,6 +111,8 @@ mvn spring-boot:run
 * **Update:** `PUT http://localhost:8080/api/<moduleName>/{id}`
 
 </details>
+ 
+------------------------------------------------------------------------------------------------------------------------
 
 ## Create a CRUD Module (Mysql)
 
@@ -163,7 +165,7 @@ spring:
 #      uri: mongodb://master:123@localhost:27017/summer?authSource=admin
 ```
 
-## 4. Create a CRUD Module (MYSQL)
+## 4. Run the command and make a complete CRUD
 
 The `summer` command creates a new module complete with a controller, service, repository, entity, and DTO. All you need
 to do is provide the name of your new module. This should correspond to an existing table name in your mysql
@@ -190,6 +192,8 @@ private String name;
 private String anotherField;
 ```
 
+------------------------------------------------------------------------------------------------------------------------
+
 ### Run the application:
 
 ```bash
@@ -207,12 +211,14 @@ mvn spring-boot:run
 
 # Activate or Deactivate Modules
 
-<details>
-<summary> Expand to see </summary>
 This feature allows you to enable or disable endpoints, making it easy to:
 
 * Deploy endpoints to different environments.
-* Scale high-traffic endpoints independently.
+* Scale high-traffic endpoints independently...
+
+<details>
+<summary> Expand to see more</summary>
+
 * Simplify maintenance with a single deployment for all endpoints.
 
 In your `application.yml` or `application.properties` file, specify which modules are active:
